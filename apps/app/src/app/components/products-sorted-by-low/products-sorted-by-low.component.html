@@ -1,0 +1,10 @@
+
+<mat-card-content>
+    <mat-list role="list" class="mat-elevation-z8">
+      <mat-list-item role="listitem"
+                     *ngFor="let item of productsSortedByLow$ | async">
+          {{item.title}} {{item.price}}
+
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>

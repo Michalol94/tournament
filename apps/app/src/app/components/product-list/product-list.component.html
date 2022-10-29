@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>Products list</mat-card-title>
+  <mat-chip-list aria-label="Fish selection">
+    <mat-chip  *ngFor="let item of categories$ | async">
+      <div routerLink="/{{item}}/products">
+      {{item}}
+      </div>
+    </mat-chip>
+  </mat-chip-list>
+  <mat-card-content>
+    <mat-list role="list" class="mat-elevation-z8">
+      <mat-list-item role="listitem"
+                     *ngFor="let item of products$ | async">
+        <div routerLink="/product/ {{item.id}}">
+        {{item.title}} {{item.price}}
+        </div>
+        <button (click)="onProductDeleteClicked(item.id)"></button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
